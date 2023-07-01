@@ -1,0 +1,9 @@
+version: '3'
+services:
+  remote-apps:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./remote-apps:/usr/share/nginx/html
