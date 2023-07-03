@@ -1,4 +1,4 @@
 !main/.gitignore
-!remote-apps/**/.gitignore
+!remotes/**/.gitignore
 
 .idea

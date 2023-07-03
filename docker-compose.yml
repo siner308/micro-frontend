@@ -3,7 +3,7 @@ services:
   remote-apps:
     image: nginx
     ports:
-      - 80:80
+      - 4000:80
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./remote-apps:/usr/share/nginx/html
+      - ./remotes/remote1/dist:/usr/share/nginx/html/remote1
