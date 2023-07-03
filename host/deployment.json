@@ -1,0 +1,10 @@
+{
+  "remote1": {
+    "url": "http://localhost:4000/remote1/f0b4e86/remoteEntry.js",
+    "module": "./Layout"
+  },
+  "remote2": {
+    "url": "http://localhost:4000/remote2/9e23954/remoteEntry.js",
+    "module": "./Layout"
+  }
+}

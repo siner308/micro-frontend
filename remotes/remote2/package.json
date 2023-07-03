@@ -1,5 +1,5 @@
 {
-  "name": "typescript_remote1",
+  "name": "typescript_remote2",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -20,6 +20,7 @@
     "start": "webpack-cli serve",
     "build": "webpack --mode production && npm run copy",
     "copy": "mkdir -p build && cp -r dist build/$(ls -alR dist | sha1sum | cut -c1-7)",
+    "copy:git-hash": "cp -r dist build/$(git rev-parse --short HEAD)",
     "serve": "serve dist -p 3002",
     "clean": "rm -rf dist"
   },

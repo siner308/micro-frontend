@@ -1,5 +1,5 @@
 {
-  "name": "typescript_app1",
+  "name": "mfe-host",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@module-federation/typescript": "2.1.6",
+    "external-remotes-plugin": "^1.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }

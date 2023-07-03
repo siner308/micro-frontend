@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const path = require('path');
 
-const pkg = require("./package.json");
+const pkg = require('./package.json');
 
 module.exports = {
   entry: './src/index',
@@ -11,7 +11,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    port: 3001,
+    port: 3002,
   },
   output: {
     publicPath: 'auto',
@@ -34,9 +34,11 @@ module.exports = {
   plugins: [
     new FederatedTypesPlugin({
       federationConfig: {
-        name: 'host',
+        name: 'remote2',
         filename: 'remoteEntry.js',
-        remotes: {},
+        exposes: {
+          './Layout': './src/Layout',
+        },
         shared: [{
           react: {
             singleton: true,
@@ -56,5 +58,3 @@ module.exports = {
     }),
   ],
 };
-
-

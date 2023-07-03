@@ -6,4 +6,6 @@ services:
       - 4000:80
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./remotes/remote1/dist:/usr/share/nginx/html/remote1
+      - ./remotes/remote1/build:/usr/share/nginx/html/remote1
+      - ./remotes/remote2/build:/usr/share/nginx/html/remote2
+      - ./remotes/deployment.json:/usr/share/nginx/html/deployment.json

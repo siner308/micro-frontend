@@ -37,7 +37,7 @@ module.exports = {
         name: 'remote1',
         filename: 'remoteEntry.js',
         exposes: {
-          './Button': './src/Button',
+          './Layout': './src/Layout',
         },
         shared: [{
           react: {
