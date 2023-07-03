@@ -1,10 +1,12 @@
 # micro-frontend
 
-MFE 구현 연습 프로젝트
-create-next-app으로 만들었습니다.
+implementation practice for micro frontend
 
-## main
-apps에 있는 각 프로젝트들이 클라우드에 업로드 한 파일들을 가져와서 렌더링해줍니다.
+## host
+render remote components
 
-## apps
-main에서 서빙 될 컴포넌트를 만듭니다.
+## remotes
+components that will be rendered by host
+
+## nginx
+to make hosting environment for remote components
