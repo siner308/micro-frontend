@@ -8,7 +8,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div style={{fontSize: '32px'}}>this is new version of remote2 component</div>
     {children}
     <div>
-      asodfijadsofisadoifj
+
     </div>
   </div>;
 };
