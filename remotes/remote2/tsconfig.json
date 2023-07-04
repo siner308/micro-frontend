@@ -6,7 +6,8 @@
     "paths": {
       "*": ["./@mf-types/*"]
     },
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"]
 }

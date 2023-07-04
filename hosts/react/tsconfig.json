@@ -6,7 +6,8 @@
     "baseUrl": "./",
     "paths": {
       "*": ["./@mf-types/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"]
 }

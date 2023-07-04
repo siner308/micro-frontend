@@ -1,31 +1,31 @@
 import React from 'react';
-import System from './util';
+import Content, { ContentMeta } from './mfeCore';
+import contentMetas from './contentMetas';
 
 const App = () => {
-  const [system, setSystem] = React.useState(undefined);
+  const [contentMeta, setContentMeta] = React.useState<ContentMeta>(contentMetas[0]);
 
-  const deployment = require('../deployment.json');
   return (
     <div style={{ backgroundColor: 'antiquewhite', padding: '4px' }}>
       <header style={{ textAlign: 'center' }}>header</header>
-      {Object.keys(deployment).map((key) => {
+      {contentMetas.map((info) => {
         return (
           <button onClick={() => {
-            setSystem({
-              url: deployment[key].url,
-              scope: key,
-              module: deployment[key].module,
+            setContentMeta({
+              url: info.url,
+              scope: info.scope,
+              module: info.module,
             })
-          }}>{key}{deployment[key].module}
+          }}>{info.scope}{info.module}
           </button>
         )
       })}
       <React.Suspense fallback="Loading Button">
-        <System system={system}>
+        <Content contentMeta={contentMeta}>
           <div>
-            우와 remote component에 component injection도 가능하다고?
+            this component is injected from a host
           </div>
-        </System>
+        </Content>
         <footer style={{ padding: '4px', textAlign: 'center' }}>footer</footer>
       </React.Suspense>
     </div>
