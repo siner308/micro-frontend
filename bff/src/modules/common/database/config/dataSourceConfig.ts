@@ -1,5 +1,10 @@
 import { DataSourceOptions } from 'typeorm';
+import Application from '../../../domain/application/application.entity';
+import Deployment from '../../../domain/deployment/deployment.entity';
+import Environment from '../../../domain/environment/environment.entity';
+import Version from '../../../domain/version/version.entity';
 
+console.log(__dirname);
 const dataSourceOptions: DataSourceOptions = {
   type: 'mysql',
   host: 'localhost',
@@ -9,7 +14,7 @@ const dataSourceOptions: DataSourceOptions = {
   database: 'mfe',
   synchronize: true,
   logging: true,
-  entities: [__dirname + '/**/*.entity.ts'],
+  entities: [Application, Deployment, Environment, Version],
 };
 
 export default dataSourceOptions;

@@ -19,3 +19,14 @@ services:
       - MYSQL_ROOT_PASSWORD=password
     volumes:
       - ./mysql:/var/lib/mysql
+
+  mysqladmin:
+    platform: linux/amd64
+    image: phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    ports:
+      - 8080:80

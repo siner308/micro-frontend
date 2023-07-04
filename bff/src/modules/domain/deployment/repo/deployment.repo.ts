@@ -9,4 +9,14 @@ export class DeploymentRepo {
     @Inject(DEPLOYMENT_REPO)
     private readonly repository: Repository<Deployment>,
   ) {}
+
+  async getByEnvironmentName(name: string) {
+    return this.repository
+      .createQueryBuilder('deployment')
+      .leftJoin('deployment.environment', 'environment')
+      .leftJoinAndSelect('deployment.version', 'version')
+      .leftJoinAndSelect('version.application', 'application')
+      .where('environment.name = :name', { name })
+      .getMany();
+  }
 }

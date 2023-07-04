@@ -9,4 +9,8 @@ export class ApplicationRepo {
     @Inject(APPLICATION_REPO)
     private readonly repository: Repository<Application>,
   ) {}
+
+  async findAll(): Promise<Application[]> {
+    return this.repository.find();
+  }
 }
