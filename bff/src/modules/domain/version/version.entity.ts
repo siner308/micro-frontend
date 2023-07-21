@@ -11,6 +11,9 @@ export default class Version extends BaseEntity {
   @Column({ name: 'url', length: 2048 })
   url: string;
 
+  @Column({ name: 'module' })
+  module: string;
+
   @ManyToOne(() => Application, (application) => application.versions, {
     cascade: true,
   })

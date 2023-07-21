@@ -1,6 +1,7 @@
 import React from "react";
 import Content, { ContentMeta } from "./mfeCore";
-import contentMetas from "./contentMetas";
+import Footer from "./components/Footer";
+import root from "react-shadow";
 
 const App = () => {
   const [contentMetas, setContentMetas] = React.useState<ContentMeta[]>([]);
@@ -12,7 +13,7 @@ const App = () => {
       .then((data) => data.map((deployment: any) => {
         const { version } = deployment;
         const { application } = version;
-        return { url: version.url, module: "./Layout", scope: application.name };
+        return { url: version.url, module: `./${version.module}`, scope: application.name };
       }))
       .then((contentMetas) => {
         setContentMetas(contentMetas);
@@ -20,30 +21,32 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "antiquewhite", padding: "4px" }}>
-      <header style={{ textAlign: "center" }}>header</header>
-      {contentMetas.map((info) => {
-        return (
-          <button onClick={() => {
-            setContentMeta({
-              url: info.url,
-              scope: info.scope,
-              module: info.module
-            });
-          }}>{info.scope}{info.module}
-          </button>
-        );
-      })}
-      <React.Suspense fallback="Loading Button">
-        {contentMeta && (
+    <div>
+      <div className='bg-red-500' style={{ backgroundColor: "antiquewhite", padding: "4px" }}>
+        <h1>header</h1>
+        {contentMetas.map((info) => {
+          return (
+            <button onClick={() => {
+              setContentMeta({
+                url: info.url,
+                scope: info.scope,
+                module: info.module
+              });
+            }}>{info.scope}{info.module}
+            </button>
+          );
+        })}
+      </div>
+      {contentMeta && (
+        <root.div className={"quote"}>
           <Content contentMeta={contentMeta}>
             <div>
               this component is injected from a host
             </div>
           </Content>
-        )}
-        <footer style={{ padding: "4px", textAlign: "center" }}>footer</footer>
-      </React.Suspense>
+        </root.div>
+      )}
+      <Footer />
     </div>
   );
 };

@@ -8,10 +8,11 @@ services:
       - ./nginx:/etc/nginx/conf.d
       - ./remotes/remote1/build:/usr/share/nginx/html/remote1
       - ./remotes/remote2/build:/usr/share/nginx/html/remote2
+      - ./remotes/admin/build:/usr/share/nginx/html/admin
       - ./remotes/deployment.json:/usr/share/nginx/html/deployment.json
   mysql:
     platform: linux/amd64
-    image: mysql:8
+    image: amd64/mysql:8
     ports:
       - 3307:3306
     command: --default-authentication-plugin=mysql_native_password
