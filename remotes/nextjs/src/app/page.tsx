@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { KeyboardEventHandler, useState } from "react";
 
 export default function Home() {
   const [todos, setTodos] = useState<string[]>([
@@ -16,7 +16,7 @@ export default function Home() {
   }
 
   // enter key
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown: KeyboardEventHandler = (e) => {
     if (e.key === 'Enter') {
       addTodo();
     }
