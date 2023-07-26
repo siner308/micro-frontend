@@ -1,7 +1,10 @@
-export default function Home() {
+import Link from "next/link";
+
+export default function Test() {
   return (
     <div>
-      test
+      <h1>test</h1>
+      <Link href={'/'}>Back to Home</Link>
     </div>
   )
 }

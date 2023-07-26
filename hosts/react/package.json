@@ -25,6 +25,7 @@
   "dependencies": {
     "@module-federation/typescript": "2.1.6",
     "@module-federation/utilities": "^2.0.4",
+    "css-loader": "^6.8.1",
     "external-remotes-plugin": "^1.0.0",
     "next": "13.4.8",
     "path-browserify": "^1.0.1",

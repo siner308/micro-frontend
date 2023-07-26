@@ -18,7 +18,7 @@ function Content(props: ContentProps) {
   const Component = React.lazy(() => importRemote({ url: url, scope, module }));
   return (
     <React.Suspense fallback="">
-      <Component {...props} />
+      <Component />
     </React.Suspense>
   );
 }

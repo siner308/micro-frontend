@@ -3,6 +3,8 @@ import Content, { ContentMeta } from "./mfeCore";
 import Footer from "./components/Footer";
 import root from "react-shadow";
 
+import '../public/reset.css'
+
 const App = () => {
   const [contentMetas, setContentMetas] = React.useState<ContentMeta[]>([]);
   const [contentMeta, setContentMeta] = React.useState<ContentMeta | undefined>(undefined);

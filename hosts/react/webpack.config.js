@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { FederatedTypesPlugin } = require("@module-federation/typescript");
+const { ModuleFederationPlugin } = require("webpack").container;
+// const { FederatedTypesPlugin } = require("@module-federation/typescript");
 const path = require("path");
 
 const pkg = require("./package.json");
@@ -31,28 +32,29 @@ module.exports = {
         options: {
           presets: ["@babel/preset-react", "@babel/preset-typescript"]
         }
-      }
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ]
   },
   plugins: [
-    new FederatedTypesPlugin({
-      federationConfig: {
-        name: "host",
-        filename: "remoteEntry.js",
-        remotes: {},
-        shared: {
-          react: {
-            singleton: true,
-            requiredVersion: false, //pkg.dependencies.react,
-            eager: true,
-          },
-          "react-dom": {
-            singleton: true,
-            requiredVersion: false, //pkg.dependencies['react-dom'],
-            eager: true,
-          },
+    new ModuleFederationPlugin({
+      name: "host",
+      filename: "remoteEntry.js",
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: false, //pkg.dependencies.react,
+          eager: true,
         },
-      }
+        "react-dom": {
+          singleton: true,
+          requiredVersion: false, //pkg.dependencies['react-dom'],
+          eager: true,
+        },
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html"

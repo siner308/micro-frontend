@@ -1,13 +1,11 @@
-import '../app/globals.css'
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className={'flex bg-blue-400'}>
       micro-frontend admin page with tailwind
-      <div className='bg-red-500' style={{ backgroundColor: "antiquewhite", padding: "4px" }}>
-        <h1>header</h1>
-        <button>asdfasdf</button>
-      </div>
+      <h1>header</h1>
+      <Link href={'/test'}>Go to Test Page</Link>
     </div>
   )
 }
