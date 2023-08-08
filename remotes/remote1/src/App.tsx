@@ -1,13 +1,9 @@
-import * as React from 'react';
-
-import LocalButton from './Layout';
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+import React from "react";
 
 const App = () => (
-  <div>
-    <h1>Typescript</h1>
-    <h2>App 1</h2>
-    <LocalButton />
-  </div>
+  <RouterProvider router={router} />
 );
 
 export default App;

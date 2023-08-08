@@ -1,6 +1,8 @@
 'use client'
 
+import '../../app/global.css';
 import { KeyboardEventHandler, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [todos, setTodos] = useState<string[]>([
@@ -28,6 +30,7 @@ export default function Home() {
 
   return (
     <div className={'h-full p-10'}>
+      <Link href={'/nextjs/test'}>test page</Link>
       <div
         className={'text-4xl font-bold text-gray-700 mb-4 text-center transition duration-200 ease-in-out hover:text-gray-900 hover:scale-110 transform cursor-pointer hover:underline'}
       >

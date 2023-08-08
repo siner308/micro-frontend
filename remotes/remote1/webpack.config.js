@@ -8,6 +8,7 @@ module.exports = {
   entry: './src/index',
   mode: 'development',
   devServer: {
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'dist'),
     },

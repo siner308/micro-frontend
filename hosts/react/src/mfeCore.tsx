@@ -17,9 +17,11 @@ function Content(props: ContentProps) {
   const { contentMeta: { scope, module, url } } = props;
   const Component = React.lazy(() => importRemote({ url: url, scope, module }));
   return (
-    <React.Suspense fallback="">
-      <Component />
-    </React.Suspense>
+    <div id={'root'}>
+      <React.Suspense fallback="">
+        <Component />
+      </React.Suspense>
+    </div>
   );
 }
 

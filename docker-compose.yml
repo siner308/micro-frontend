@@ -6,11 +6,11 @@ services:
       - 4000:80
     volumes:
       - ./nginx:/etc/nginx/conf.d
+      - ./hosts/react/dist:/usr/share/nginx/html/asdf
       - ./remotes/remote1/build:/usr/share/nginx/html/remote1
       - ./remotes/remote2/build:/usr/share/nginx/html/remote2
       - ./remotes/admin/build:/usr/share/nginx/html/admin
-      - ./remotes/admin/.next:/usr/share/nginx/html/admin/.next
-      - ./remotes/deployment.json:/usr/share/nginx/html/deployment.json
+      - ./remotes/nextjs/.next:/usr/share/nginx/html/admin/.next
   mysql:
     platform: linux/amd64
     image: amd64/mysql:8
