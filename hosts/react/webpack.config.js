@@ -47,24 +47,20 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        admin: "admin@http://localhost:3002/remoteEntry.js",
+        // remote1: 'remote1@http://localhost:3002/remoteEntry.js',
+        // remote2: 'remote2@http://localhost:3003/remoteEntry.js',
+        // admin: 'admin@http://localhost:3004/_next/static/chunks/remoteEntry.js',
+        // vite: 'vite@http://localhost:4173/assets/remoteEntry.js',
       },
       shared: {
         react: {
           singleton: true,
-          requiredVersion: false, //pkg.dependencies.react,
-          eager: true,
+          requiredVersion: require("./package.json").dependencies.react,
         },
         "react-dom": {
           singleton: true,
-          requiredVersion: false, //pkg.dependencies['react-dom'],
-          eager: true,
-        },
-        next: {
-          singleton: true,
-          requiredVersion: false, //pkg.dependencies['react-dom'],
-          eager: true,
-        },
+          requiredVersion: require("./package.json").dependencies["react-dom"],
+        }
       },
     }),
     new HtmlWebpackPlugin({
