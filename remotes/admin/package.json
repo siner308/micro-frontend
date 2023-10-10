@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && npm run copy && echo $(ls -alR .next | sha1sum | cut -c1-7)",
     "copy": "mkdir -p build && cp -r .next build/$(ls -alR .next | sha1sum | cut -c1-7)",
-    "start": "next start",
+    "start": "next start --port 3004",
     "lint": "next lint"
   },
   "dependencies": {

@@ -8,6 +8,7 @@ module.exports = {
   entry: './src/index',
   mode: 'development',
   devServer: {
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'dist'),
     },
@@ -37,20 +38,18 @@ module.exports = {
         name: 'remote2',
         filename: 'remoteEntry.js',
         exposes: {
-          './App': './src/App',
+          './remote2': './src/App',
         },
-        shared: [{
+        shared: {
           react: {
             singleton: true,
             requiredVersion: pkg.dependencies.react,
-          }},
-          {
-            'react-dom': {
-              singleton: true,
-              requiredVersion: pkg.dependencies['react-dom'],
-            },
-          }
-        ],
+          },
+          'react-dom': {
+            singleton: true,
+            requiredVersion: pkg.dependencies['react-dom'],
+          },
+        },
       }
     }),
     new HtmlWebpackPlugin({

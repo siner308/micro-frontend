@@ -20,7 +20,7 @@
     "start": "webpack-cli serve",
     "build": "webpack --mode production && npm run copy",
     "copy": "mkdir -p build && cp -r dist build/$(ls -alR dist | sha1sum | cut -c1-7) && echo $(ls -alR dist | sha1sum | cut -c1-7)",
-    "serve": "serve dist -p 3002",
+    "serve": "serve dist -p 3003",
     "clean": "rm -rf dist"
   },
   "dependencies": {

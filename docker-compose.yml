@@ -11,6 +11,7 @@ services:
       - ./remotes/remote2/build:/usr/share/nginx/html/remote2
       - ./remotes/admin/build:/usr/share/nginx/html/admin
       - ./remotes/nextjs/.next:/usr/share/nginx/html/admin/.next
+      - ./remotes/vite/dist:/usr/share/nginx/html/vite
   mysql:
     platform: linux/amd64
     image: amd64/mysql:8

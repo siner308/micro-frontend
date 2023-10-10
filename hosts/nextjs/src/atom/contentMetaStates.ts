@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { ContentMeta } from "../mfeCore";
+import { ContentMeta } from "@/mfe/mfeCore";
 
 export const contentMetaStates = selector({
   key: "contentMetaStates",

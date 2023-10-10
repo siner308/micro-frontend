@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       test page
-      <Link href={'/nextjs'}>return to home</Link>
+      <Link href={'/admin'}>return to home</Link>
     </div>
   )
 }

@@ -1,8 +1,8 @@
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
+const pkg = require("./package.json");
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  webpack5: true,
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
@@ -10,14 +10,23 @@ const nextConfig = {
         remotes: {},
         filename: "static/chunks/remoteEntry.js",
         exposes: {
-          "./App": "./src/pages/index"
+          "./admin": "./src/pages/admin/index"
         },
-        shared: {}
+        shared: {
+          next: {
+            singleton: true,
+            requiredVersion: pkg.dependencies.next,
+            eager: true,
+          },
+        },
+        extraOptions: {
+          exposePages: true,
+        },
       })
     );
 
     return config;
-  }
+  },
 };
 
 module.exports = nextConfig;

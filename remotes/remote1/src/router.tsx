@@ -4,6 +4,10 @@ import { Buttons } from "./components/button";
 
 export const router = createBrowserRouter([
     {
+        path: "/",
+        element: <div>root <Buttons/></div>,
+    },
+    {
         path: "/remote1",
         element: <div>root <Buttons/></div>,
     },

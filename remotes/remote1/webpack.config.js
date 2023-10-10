@@ -38,20 +38,22 @@ module.exports = {
         name: 'remote1',
         filename: 'remoteEntry.js',
         exposes: {
-          './App': './src/App',
+          './remote1': './src/App',
         },
-        shared: [{
+        shared: {
           react: {
             singleton: true,
             requiredVersion: pkg.dependencies.react,
-          }},
-          {
-            'react-dom': {
-              singleton: true,
-              requiredVersion: pkg.dependencies['react-dom'],
-            },
-          }
-        ],
+          },
+          'react-dom': {
+            singleton: true,
+            requiredVersion: pkg.dependencies['react-dom'],
+          },
+          'react-router-dom': {
+            singleton: true,
+            requiredVersion: pkg.dependencies['react-router-dom'],
+          },
+        },
       }
     }),
     new HtmlWebpackPlugin({
